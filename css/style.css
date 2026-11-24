@@ -119,6 +119,15 @@ button, input, select, textarea {
   border: 0;
 }
 
+/* Compact-only pieces (shown by the compact block in media.css) */
+.m-only,
+.br-compact,
+.header__mobile,
+.mnav,
+.slider-controls {
+  display: none;
+}
+
 .container {
   box-sizing: border-box;
   max-width: var(--container);
@@ -190,6 +199,11 @@ button, input, select, textarea {
 .icon--next { --icon: url("../assets/icons/chevron-right.svg"); --icon-size: 22px; }
 .icon--close { --icon: url("../assets/icons/close.svg"); --icon-size: 20px; }
 .icon--check { --icon: url("../assets/icons/check.svg"); --icon-size: 40px; }
+/* Mobile-frame icons (node 52:229): the same shapes drawn for their smaller sizes */
+.icon--phone-20 { --icon: url("../assets/icons/phone-20.svg"); --icon-size: 20px; }
+.icon--burger { --icon: url("../assets/icons/burger.svg"); --icon-size: 24px; }
+.icon--close-24 { --icon: url("../assets/icons/close-24.svg"); --icon-size: 24px; }
+.icon--chevron-right-20 { --icon: url("../assets/icons/chevron-right-20.svg"); --icon-size: 20px; }
 
 /* ================= Buttons (Figma components Button/Primary, /Outline, /Outline Arrow) */
 
@@ -950,6 +964,13 @@ a.contact__value:hover,
 .attach:focus-within {
   outline: 2px solid var(--c-accent);
   outline-offset: 2px;
+}
+
+.attach__text {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
 }
 
 .attach__title {

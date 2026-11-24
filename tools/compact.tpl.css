@@ -1,0 +1,1126 @@
+/* Compact layout (≤1279px) from the mobile frame "Stonix — Mobile 361" (file Y1XFh9NFPysHl10N7wKPAI, node 52:229,
+   360 wide), menu 52:621, popups 52:673 / 52:735 (bottom sheets).
+   m(N) = the Figma mobile value N × --m. Expanded by tools/build-compact.py into css/media.css
+   (between the compact:generated markers). Edit this file, never the generated block. */
+
+/* ================= Scale factors */
+@media (max-width: 1279.98px) {
+  :root {
+    --m: 1.25;
+    --gutter-base: 40px;
+    --gutter: calc(var(--gutter-base) * var(--m));
+    --header-h: m(64);
+  }
+}
+
+@media (max-width: 1023.98px) {
+  :root {
+    --m: 1.15;
+  }
+}
+
+@media (max-width: 768.98px) {
+  :root {
+    --m: 1.1;
+    --gutter-base: 20px;
+  }
+}
+
+@media (max-width: 480.98px) {
+  :root {
+    --m: 1;
+  }
+}
+
+@media (max-width: 359.98px) {
+  :root {
+    --m: 0.889;
+  }
+}
+
+/* ================= Compact (≤1279): shared */
+@media (max-width: 1279.98px) {
+  body {
+    font-size: m(16);
+  }
+
+  .d-only,
+  .br-design {
+    display: none !important;
+  }
+
+  .m-only {
+    display: revert;
+  }
+
+  .br-compact {
+    display: inline;
+  }
+
+  .section {
+    padding-top: m(80);
+  }
+
+  .title {
+    font-size: m(32);
+    line-height: 1.02;
+    letter-spacing: m(-0.64);
+  }
+
+  .title--xl {
+    font-size: m(36);
+    line-height: 0.98;
+    letter-spacing: m(-0.9);
+  }
+
+  .title--cta {
+    font-size: m(40);
+    line-height: 0.98;
+    letter-spacing: m(-1);
+  }
+
+  .lead {
+    font-size: m(16);
+    line-height: 1.55;
+  }
+
+  .section__lead {
+    margin-top: m(12);
+  }
+
+  .text {
+    font-size: m(15);
+    line-height: 1.55;
+  }
+
+  .note {
+    font-size: m(13);
+    line-height: 1.5;
+  }
+
+  .btn {
+    width: 100%;
+    padding: m(19) m(32);
+    font-size: m(18);
+    gap: m(10);
+  }
+
+  .btn .icon--arrow {
+    --icon-size: m(18);
+  }
+
+  .icon-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: m(44);
+    height: m(44);
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--c-ink);
+    cursor: pointer;
+  }
+
+  .icon--phone-20,
+  .icon--chevron-right-20 {
+    --icon-size: m(20);
+  }
+
+  .icon--burger,
+  .icon--close-24 {
+    --icon-size: m(24);
+  }
+
+  /* ---------- Fields (Figma Field/Input, Field/Select, Field/Textarea) */
+  .field {
+    gap: m(10);
+  }
+
+  .field__label {
+    font-size: m(16);
+  }
+
+  .field__control {
+    height: m(56);
+    padding: 0 m(20);
+    font-size: m(18);
+  }
+
+  .field__control--area {
+    height: m(128);
+    padding: m(18) m(20);
+  }
+
+  .field__select select {
+    padding-right: m(52);
+  }
+
+  .field__select .icon {
+    top: m(18);
+    right: m(20);
+    --icon-size: m(20);
+  }
+
+  .field__error {
+    font-size: m(12);
+  }
+
+  .attach {
+    gap: m(12);
+    padding: m(16);
+  }
+
+  .attach .icon {
+    --icon-size: m(20);
+  }
+
+  .attach__text {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: m(2);
+    line-height: 1.5;
+  }
+
+  .attach__title {
+    font-size: m(15);
+  }
+
+  .attach__hint {
+    max-width: 100%;
+    font-size: m(13);
+  }
+
+  /* ---------- Sliders (materials, our work): dots + round arrows under the track */
+  .slider-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: m(16);
+    margin-top: m(24);
+  }
+
+  .slider-controls__arrows {
+    display: flex;
+    gap: m(8);
+  }
+
+  .slider-controls .round-btn {
+    width: m(44);
+    height: m(44);
+  }
+
+  .slider-controls .icon--prev {
+    --icon: url("../assets/icons/prev-20.svg");
+    --icon-size: m(20);
+  }
+
+  .slider-controls .icon--next {
+    --icon: url("../assets/icons/next-20.svg");
+    --icon-size: m(20);
+  }
+
+  .slider-dots {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: m(10);
+  }
+
+  .slider-dot {
+    position: relative;
+    display: block;
+    width: m(8);
+    height: m(8);
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: var(--c-line-18);
+    cursor: pointer;
+    transition: background-color 0.4s var(--ease), scale 0.4s var(--ease-out);
+  }
+
+  /* bigger touch target than the dot itself */
+  .slider-dot::before {
+    content: "";
+    position: absolute;
+    inset: m(-10) m(-5);
+  }
+
+  .slider-dot.is-active {
+    background: var(--c-accent);
+    scale: 1.15;
+  }
+
+  /* A horizontal scroll track that runs from screen edge to screen edge, aligned to the gutter */
+  .tiles,
+  .work__viewport {
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: var(--gutter);
+    scrollbar-width: none;
+  }
+
+  .tiles::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tiles.is-dragging {
+    cursor: grabbing;
+    scroll-snap-type: none;
+    user-select: none;
+  }
+}
+
+/* ================= Compact: header, mobile menu */
+@media (max-width: 1279.98px) {
+  .header__inner {
+    height: calc(var(--header-h) - 1px);
+    padding-right: calc(var(--gutter) - m(8));
+  }
+
+  .logo {
+    gap: m(10);
+  }
+
+  .logo__emblem {
+    width: m(30);
+    height: m(32);
+  }
+
+  .logo__wordmark {
+    width: m(82);
+    height: m(23);
+  }
+
+  .nav,
+  .header__actions {
+    display: none;
+  }
+
+  .header__mobile {
+    display: flex;
+    gap: m(4);
+  }
+
+  /* Mobile menu (node 52:621): unrolls from the top, the items follow one by one */
+  .mnav {
+    position: fixed;
+    inset: 0;
+    z-index: 70;
+    display: flex;
+    flex-direction: column;
+    background: var(--c-bg);
+    visibility: hidden;
+    clip-path: inset(0 0 100% 0);
+    /* closing: a little slower and eased at both ends */
+    transition: clip-path 0.7s cubic-bezier(0.65, 0, 0.35, 1), visibility 0s linear 0.7s;
+  }
+
+  .mnav.is-open {
+    visibility: visible;
+    clip-path: inset(0 0 0 0);
+    transition: clip-path 0.6s var(--ease-out), visibility 0s;
+  }
+
+  .mnav__head {
+    display: flex;
+    flex: none;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    height: var(--header-h);
+    padding: 0 calc(var(--gutter) - m(8)) 0 var(--gutter);
+    border-bottom: 1px solid var(--c-line-08);
+  }
+
+  .mnav__nav {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: m(16) var(--gutter) 0;
+  }
+
+  .mnav__link {
+    display: flex;
+    flex: none;
+    align-items: center;
+    justify-content: space-between;
+    padding: m(14) 0;
+    border-bottom: 1px solid rgba(19, 27, 35, 0.1);
+    font-size: m(26);
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: m(-0.26);
+    transition: color var(--dur) var(--ease);
+  }
+
+  .mnav__link .icon {
+    color: var(--c-ink-45);
+    transition: translate var(--dur) var(--ease), color var(--dur) var(--ease);
+  }
+
+  .mnav__link:hover,
+  .mnav__link:focus-visible {
+    color: var(--c-accent);
+  }
+
+  .mnav__link:hover .icon {
+    color: var(--c-accent);
+    translate: m(3) 0;
+  }
+
+  .mnav__nav > *,
+  .mnav__bottom > * {
+    opacity: 0;
+    translate: 0 m(12);
+    transition: opacity 0.3s var(--ease), translate 0.5s var(--ease-out);
+  }
+
+  .mnav.is-open .mnav__nav > *,
+  .mnav.is-open .mnav__bottom > * {
+    opacity: 1;
+    translate: 0 0;
+  }
+
+  .mnav.is-open .mnav__nav > :nth-child(1) { transition-delay: 0.12s; }
+  .mnav.is-open .mnav__nav > :nth-child(2) { transition-delay: 0.16s; }
+  .mnav.is-open .mnav__nav > :nth-child(3) { transition-delay: 0.2s; }
+  .mnav.is-open .mnav__nav > :nth-child(4) { transition-delay: 0.24s; }
+  .mnav.is-open .mnav__nav > :nth-child(5) { transition-delay: 0.28s; }
+  .mnav.is-open .mnav__nav > :nth-child(6) { transition-delay: 0.32s; }
+  .mnav.is-open .mnav__nav > :nth-child(7) { transition-delay: 0.36s; }
+  .mnav.is-open .mnav__bottom > * { transition-delay: 0.4s; }
+
+  .mnav__bottom {
+    display: flex;
+    flex: none;
+    flex-direction: column;
+    gap: m(12);
+    padding: m(16) var(--gutter) calc(m(28) + env(safe-area-inset-bottom));
+  }
+
+  .mnav__phone {
+    display: flex;
+    align-items: center;
+    gap: m(10);
+    margin-bottom: m(4);
+    font-size: m(18);
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  .mnav__phone .icon {
+    color: var(--c-accent);
+  }
+}
+
+/* ================= Compact: page sections */
+@media (max-width: 1279.98px) {
+  /* ---------- Hero (node 52:243): photo on top, text below */
+  .hero {
+    height: auto;
+    min-height: 0;
+    overflow: visible;
+  }
+
+  .hero__photo {
+    position: relative;
+    inset: auto;
+    height: m(380);
+  }
+
+  .hero__inner {
+    align-items: stretch;
+    height: auto;
+    padding-top: m(36);
+    /* the Figma content frame (412 tall) clips its own 32px bottom gap; the next section brings 80 */
+    padding-bottom: 0;
+  }
+
+  .hero__lead {
+    margin-top: m(16);
+    font-size: m(16);
+  }
+
+  .hero__actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: m(12);
+    margin-top: m(28);
+  }
+
+  .hero__note {
+    margin-top: m(12);
+  }
+
+  /* ---------- Why Stonix (node 52:256) */
+  .why {
+    height: auto;
+    padding-top: m(80);
+  }
+
+  .why__photo {
+    position: static;
+    width: 100%;
+    height: m(300);
+  }
+
+  .why__content {
+    position: static;
+    padding: m(36) var(--gutter) 0;
+  }
+
+  .why__lead {
+    margin-top: m(12);
+  }
+
+  .points {
+    grid-template-columns: minmax(0, 1fr);
+    gap: m(28);
+    margin-top: m(32);
+  }
+
+  .point {
+    gap: m(10);
+    padding-top: m(20);
+  }
+
+  .point__num {
+    font-size: m(13);
+    line-height: 1.5;
+  }
+
+  .point__title {
+    font-size: m(20);
+    line-height: 1.25;
+    letter-spacing: m(-0.1);
+  }
+
+  /* ---------- Materials (node 52:280): a swipe track of tiles */
+  .tiles {
+    gap: m(12);
+    margin: m(28) calc(var(--gutter) * -1) 0;
+    padding: 0 var(--gutter);
+  }
+
+  .tile {
+    flex: none;
+    width: m(240);
+    scroll-snap-align: start;
+  }
+
+  .tile__img {
+    height: m(300);
+  }
+
+  .tile__name {
+    margin-top: m(22);
+    font-size: m(24);
+    letter-spacing: m(-0.24);
+  }
+
+  .tile__text {
+    max-width: m(210);
+    margin-top: m(8);
+    line-height: 1.5;
+  }
+
+  /* ---------- What we make (node 52:311): cards one under another */
+  .bento {
+    display: flex;
+    flex-direction: column;
+    gap: m(36);
+    margin-top: m(28);
+  }
+
+  .bento__col {
+    display: contents;
+  }
+
+  .service__img,
+  .service--main .service__img {
+    height: m(220);
+  }
+
+  .service__name {
+    margin-top: m(24);
+    font-size: m(22);
+    line-height: 1.15;
+    letter-spacing: m(-0.22);
+  }
+
+  .service__text {
+    margin-top: m(8);
+  }
+
+  .also {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: m(8);
+    margin-top: m(32);
+    padding-top: m(20);
+    font-size: m(15);
+    line-height: 1.5;
+  }
+
+  /* Figma's box is 254 wide; Onest renders a little wider in browsers, 280 gives the same three lines */
+  .also__list.m-only {
+    max-width: m(280);
+    line-height: 1.7;
+    white-space: normal;
+  }
+
+  /* ---------- Our work (node 52:336) */
+  .work__head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .work__arrows {
+    display: none;
+  }
+
+  .work__viewport {
+    --edge: var(--gutter);
+    margin-top: m(28);
+    cursor: auto;
+  }
+
+  .work__track {
+    gap: m(12);
+  }
+
+  .work-card,
+  .work-card--wide,
+  .work-card--narrow {
+    width: m(280);
+  }
+
+  .work-card__media {
+    height: m(340);
+  }
+
+  .work-card__caption {
+    margin-top: m(12);
+    font-size: m(16);
+  }
+
+  /* ---------- How it works (node 52:364): full-width band, number beside each step */
+  .process .container,
+  .quote .container {
+    padding: 0;
+  }
+
+  .process__band {
+    padding: m(56) var(--gutter);
+  }
+
+  .steps {
+    flex-direction: column;
+    gap: m(24);
+    margin-top: m(28);
+  }
+
+  .step {
+    display: grid;
+    flex: none;
+    grid-template-columns: m(44) minmax(0, 1fr);
+    /* the number spans both rows; any extra height goes below the text, not between title and text */
+    grid-template-rows: auto 1fr;
+    align-items: start;
+    column-gap: m(16);
+    padding-top: m(20);
+  }
+
+  .step__num {
+    grid-row: 1 / span 2;
+    font-size: m(28);
+    letter-spacing: m(-0.28);
+  }
+
+  .step__title {
+    margin-top: 0;
+    font-size: m(18);
+    line-height: 1.25;
+    letter-spacing: 0;
+  }
+
+  .step__text {
+    margin: m(6) 0 0;
+  }
+
+  .process__cta {
+    flex-direction: column;
+    align-items: stretch;
+    gap: m(12);
+    margin-top: m(32);
+  }
+
+  /* ---------- Remnants (node 52:400): count, cards, then the button */
+  .remnants__inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .remnants__text {
+    display: contents;
+  }
+
+  .remnant-cards {
+    order: 1;
+    flex: none;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: m(24) m(12);
+    margin-top: m(28);
+  }
+
+  .remnants__btn {
+    order: 2;
+    margin-top: m(28);
+  }
+
+  .remnants__note {
+    order: 3;
+    margin-top: m(12);
+  }
+
+  .count {
+    gap: m(12);
+    margin-top: m(24);
+  }
+
+  .count__num {
+    font-size: m(48);
+    letter-spacing: m(-0.96);
+  }
+
+  .count__label {
+    font-size: m(15);
+  }
+
+  /* name, finish, size one under another */
+  .remnant {
+    display: flex;
+    flex-direction: column;
+    gap: m(4);
+  }
+
+  .remnant__img {
+    height: m(120);
+    margin-bottom: m(12);
+  }
+
+  .remnant__row {
+    display: contents;
+  }
+
+  .remnant__name {
+    order: 1;
+    font-size: m(15);
+  }
+
+  .remnant__spec {
+    order: 2;
+    margin: 0;
+    font-size: m(13);
+    line-height: 1.5;
+  }
+
+  .remnant__size {
+    order: 3;
+    font-size: m(13);
+    line-height: 1.5;
+  }
+
+  /* ---------- Get a free quote (node 52:440): form first, contacts after it */
+  .quote__panel {
+    flex-direction: column;
+    align-items: stretch;
+    gap: m(16);
+    padding: m(56) var(--gutter);
+  }
+
+  .quote__intro {
+    display: contents;
+  }
+
+  .quote .section__lead {
+    margin-top: 0;
+  }
+
+  .form {
+    order: 2;
+    flex: none;
+    gap: m(16);
+    margin-top: m(24);
+  }
+
+  .form__row {
+    flex-direction: column;
+    gap: m(16);
+  }
+
+  .form__submit {
+    flex-direction: column;
+    align-items: stretch;
+    gap: m(16);
+    margin-top: m(24);
+  }
+
+  .contacts {
+    order: 3;
+    gap: m(20);
+    margin-top: m(32);
+    padding-top: m(28);
+    border-top: 1px solid var(--c-line-14);
+  }
+
+  .contact {
+    gap: m(14);
+  }
+
+  .contact .icon {
+    --icon-size: m(22);
+  }
+
+  .contact__body {
+    gap: m(2);
+  }
+
+  .contact__label {
+    font-size: m(13);
+    line-height: 1.5;
+  }
+
+  .contact__value {
+    font-size: m(17);
+    line-height: 1.5;
+  }
+
+  /* ---------- FAQ (node 52:490) */
+  .faq__inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .faq__intro,
+  .accordion {
+    flex: none;
+  }
+
+  .accordion {
+    margin-top: m(24);
+  }
+
+  .faq-item__btn {
+    align-items: flex-start;
+    gap: m(16);
+    padding: m(20) 0;
+    font-size: m(17);
+    line-height: 1.35;
+    letter-spacing: 0;
+  }
+
+  .faq-item__btn .icon--toggle {
+    --icon: url("../assets/icons/plus-20.svg");
+    --icon-size: m(20);
+    margin-top: m(1.5);
+  }
+
+  .faq-item.is-open .icon--toggle {
+    --icon: url("../assets/icons/minus-20.svg");
+  }
+
+  .faq-item.is-open .faq-item__btn {
+    padding-bottom: m(12);
+  }
+
+  .faq-item__a {
+    max-width: none;
+    padding: 0 m(36) m(20) 0;
+    font-size: m(15);
+  }
+
+  /* ---------- Final CTA (node 52:542) */
+  .cta {
+    padding: m(80) 0;
+  }
+
+  .cta__panel {
+    flex-direction: column;
+    align-items: stretch;
+    gap: m(16);
+    padding-top: m(40);
+  }
+
+  .cta__side {
+    gap: m(16);
+    margin-top: m(24);
+  }
+
+  .cta__buttons {
+    flex-direction: column;
+    align-items: stretch;
+    gap: m(16);
+  }
+
+  /* ---------- Footer (node 52:549): brand, then the columns two by two */
+  .footer {
+    padding: m(48) 0 m(32);
+  }
+
+  .footer__cols {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: m(36) m(20);
+  }
+
+  .footer__brand {
+    grid-column: 1 / -1;
+  }
+
+  .footer__about {
+    max-width: m(258);
+    margin-top: m(14);
+  }
+
+  .footer__head {
+    font-size: m(13);
+    line-height: 1.5;
+  }
+
+  .footer__list {
+    gap: m(10);
+    margin-top: m(10);
+    font-size: m(15);
+    line-height: 1.5;
+    white-space: normal;
+  }
+
+  .footer__bottom {
+    flex-direction: column;
+    gap: m(8);
+    margin-top: m(36);
+    padding-top: m(20);
+    font-size: m(13);
+    line-height: 1.5;
+  }
+}
+
+/* ================= Compact: popups as a bottom sheet (nodes 52:673, 52:735) */
+@media (max-width: 1279.98px) {
+  /* The dialog itself is the sheet. Its slide is a Web Animation started by main.js
+     (a CSS transition could be skipped when the dialog is shown and styled in the same frame). */
+  .modal {
+    width: 100%;
+    max-width: m(560);
+    max-height: calc(100% - m(16));
+    margin: auto auto 0;
+    padding: m(20) var(--gutter) calc(m(28) + env(safe-area-inset-bottom));
+    opacity: 1;
+    translate: none;
+    scale: none;
+    transition: none;
+  }
+
+  .modal::backdrop {
+    transition: opacity 0.45s var(--ease);
+  }
+
+  .modal__close {
+    position: static;
+    display: flex;
+    width: m(44);
+    height: m(44);
+    margin: 0 0 m(4) auto;
+  }
+
+  .modal__close .icon {
+    --icon-size: m(20);
+  }
+
+  .modal__title {
+    font-size: m(30);
+    line-height: 1.05;
+    letter-spacing: m(-0.45);
+  }
+
+  .modal__text {
+    max-width: m(300);
+    margin-top: m(8);
+    font-size: m(15);
+    line-height: 1.55;
+  }
+
+  .modal__fields {
+    gap: m(14);
+    margin-top: m(20);
+  }
+
+  .modal__submit {
+    margin-top: m(20);
+  }
+
+  .modal__note {
+    margin-top: m(10);
+  }
+
+  .modal__check {
+    --icon: url("../assets/icons/check-36.svg");
+    --icon-size: m(36);
+    margin-top: m(4);
+  }
+
+  .modal__check + .modal__title {
+    margin-top: m(16);
+  }
+
+  [data-modal-view="sent"] .modal__text {
+    margin-top: m(10);
+  }
+
+  .modal__actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: m(10);
+    margin-top: m(24);
+  }
+}
+
+/* ================= Phones (≤768): text widths from the 360 frame, so lines break as in Figma */
+@media (max-width: 768.98px) {
+  .hero__lead {
+    max-width: m(278);
+  }
+
+  .why__lead {
+    max-width: m(268);
+  }
+
+  .point .text {
+    max-width: m(300);
+  }
+
+  .services .section__lead,
+  .process .section__lead {
+    max-width: m(244);
+  }
+
+  .work .section__lead {
+    max-width: m(272);
+  }
+
+  .quote .section__lead {
+    max-width: m(264);
+  }
+
+  .service--main .service__text {
+    max-width: m(276);
+  }
+
+  .bento__col .service:first-child .service__text {
+    max-width: m(244);
+  }
+
+  .bento__col .service:last-child .service__text {
+    max-width: m(320);
+  }
+
+  .step__text {
+    max-width: m(230);
+  }
+
+  .form__note {
+    max-width: m(248);
+  }
+}
+
+/* ================= Tablets (769–1279): the same blocks laid out in columns */
+@media (min-width: 769px) and (max-width: 1279.98px) {
+  .lead,
+  .hero__lead {
+    max-width: m(520);
+  }
+
+  .btn {
+    width: auto;
+  }
+
+  .hero__actions,
+  .process__cta,
+  .cta__buttons,
+  .form__submit {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .hero__photo {
+    height: m(420);
+  }
+
+  .points {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: m(28);
+  }
+
+  .bento {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: m(24);
+  }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: m(28) m(32);
+  }
+
+  .remnant-cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .remnant__img {
+    height: m(150);
+  }
+
+  .remnants__btn {
+    align-self: flex-start;
+  }
+
+  .form__row {
+    flex-direction: row;
+  }
+
+  .form__note {
+    max-width: m(320);
+  }
+
+  .contacts {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .faq-item__a {
+    max-width: m(560);
+  }
+
+  .also__list.m-only {
+    max-width: none;
+  }
+
+  .footer__cols {
+    grid-template-columns: repeat(4, auto);
+    justify-content: space-between;
+  }
+
+  /* the sheet's buttons keep the full width */
+  .modal .btn {
+    width: 100%;
+  }
+}

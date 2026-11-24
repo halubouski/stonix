@@ -6,7 +6,7 @@
     "serve": "python3 -m http.server 8765",
     "lh": "sh tools/lighthouse.sh",
     "lh:summary": "node tools/lh-summary.mjs",
-    "build:css": "python3 tools/scale-laptop.py && node tools/build-css.mjs",
+    "build:css": "python3 tools/scale-laptop.py && python3 tools/build-compact.py && node tools/build-css.mjs",
     "build:images": "node tools/optimize-images.mjs",
     "build:js": "node tools/build-js.mjs",
     "build": "npm run build:css && npm run build:js"
